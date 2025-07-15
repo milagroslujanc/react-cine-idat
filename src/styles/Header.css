@@ -1,0 +1,21 @@
+header {
+    padding: 10px 20px;
+}
+
+.link-routes,
+a {
+    font-size: 1.3em;
+    color: #0D3B66;
+}
+
+select {
+    border-radius: 5px;
+    background-color: #0D3B66;
+    padding: 5px 20px;
+}
+
+select,
+option {
+    font-size: 1.3em;
+    color: #F4D35E;
+}
