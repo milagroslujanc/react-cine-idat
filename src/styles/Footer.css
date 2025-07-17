@@ -1,0 +1,14 @@
+footer{
+    margin-top: 10px;
+    height: 500px;
+    background-color: #0D3B66;
+    color: #fff;
+    display: grid;
+    align-items: center;
+}
+
+.info-enterprice{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
