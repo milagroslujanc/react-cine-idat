@@ -12,3 +12,26 @@ footer{
     justify-content: space-between;
     padding: 20px;
 }
+
+.info-enterprice-links a {
+    color: #fff;
+    text-decoration: underline !important;
+}
+
+.info-enterprice-text, .info-enterprice-links, .info-enterprice-social{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 200px;
+}
+
+.info-enterprice-text span {
+    margin-bottom: 10px;
+}
+
+.info-copyright{
+    text-align: center;
+    padding: 20px;
+    background-color: #0D3B66;
+    color: #fff;
+}

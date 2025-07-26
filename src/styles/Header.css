@@ -1,25 +1,26 @@
 header {
-    padding: 10px 20px;
+  padding: 10px 20px;
 }
 
 .link-routes,
 a {
-    font-size: 1.3em;
-    color: #0D3B66;
+  font-size: 1.3em;
+  color: #0d3b66;
 }
 
 .text-color {
-    color: #0D3B66;
+  color: #0d3b66;
 }
 
-select {
-    border-radius: 5px;
-    background-color: #0D3B66;
-    padding: 5px 20px;
+.select-cede {
+  border-radius: 5px;
+  background-color: #0d3b66;
+  padding: 5px 20px;
+  color: #f4d35e;
+  font-size: 1.3em;
 }
 
-select,
-option {
-    font-size: 1.3em;
-    color: #F4D35E;
+.select-cede option {
+  font-size: 1em;
+  color: #f4d35e;
 }

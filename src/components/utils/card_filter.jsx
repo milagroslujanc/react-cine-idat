@@ -1,16 +1,48 @@
-import '../../styles/Card.css'
+import React, { useState } from "react";
 
-export function CardFilter(props) {
+import "../../styles/Card.css"; // Assuming you have a CSS file for styling
 
-    return (
-        <div className="card-filter">
-            <div className="card-body d-flex justify-content-between">
-                <div className="d-grid">
-                    <span><b>{props.title}</b></span>
-                    <span className="card-desc"><b>{props.desc}</b></span>
-                </div>
-                <span className='ms-4'>V</span>
-            </div>
+const options = {
+  movies: ["Avatar", "Titanic", "Inception"],
+  city: ["Lima", "Cusco", "Arequipa"],
+  cede: ["Cinemark", "Cineplanet", "UVK"],
+  date: ["Hoy", "Mañana", "Este fin de semana"],
+};
+
+export function CardFilter({ id, title, question }) {
+  const [activeCard, setActiveCard] = useState(null);
+
+  const handleCardClick = (id) => {
+    setActiveCard(activeCard === id ? null : id);
+  };
+
+  return (
+    <div className="col-md-3">
+      <div
+        className="card-filter"
+        onClick={() => handleCardClick(id)}
+        style={{ cursor: "pointer" }}
+      >
+        <div className="card-body-filter card-body d-flex justify-content-between">
+          <div className="d-grid">
+            <span>
+              <b>{title}</b>
+            </span>
+            <span className="card-desc">
+              <b>{question}</b>
+            </span>
+          </div>
         </div>
-    )
+      </div>
+      {activeCard === id && (
+        <div className="mt-2 card-options">
+          <select className="form-select">
+            {options[id].map((opt) => (
+              <option key={opt}>{opt}</option>
+            ))}
+          </select>
+        </div>
+      )}
+    </div>
+  );
 }
