@@ -26,7 +26,7 @@ export function ListMovies() {
     }, [])
 
     return (
-        <div className="container list-movies">
+        <section className="container list-movies" id="peliculas">
             <h2 className='text-color'>Películas</h2>
             <span>Mira toda nuestra cartelera</span>
             <div className='list-movies-container'>
@@ -37,6 +37,6 @@ export function ListMovies() {
                     ))
                 }
             </div>
-        </div>
+        </section>
     )
 }

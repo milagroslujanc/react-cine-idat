@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Home } from "./pages/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from "./components/header";
+import { Footer } from "./components/footer";
 import { Reservation } from "./pages/Reservation";
 // import Peliculas from "./pages/Peliculas";
 // import Cines from "./pages/Cines";
@@ -25,6 +26,7 @@ function App() {
         <Route path="/promociones" element={<Promociones />} />
         <Route path="/alimentos" element={<Alimentos />} /> */}
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
