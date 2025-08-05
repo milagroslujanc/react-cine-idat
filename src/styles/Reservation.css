@@ -1,0 +1,21 @@
+.movie-poster {
+  width: 60%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.btn-reserve {
+  background-color: #f4d35e;
+  color: #000;
+  border: none;
+  font-size: 1.5em;
+  width: 350px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #e0c72b;
+  }
+  font-weight: bold;
+}
