@@ -36,7 +36,13 @@ export function ListMovies() {
                         <img
                             src={movie.imgUrl}
                             key={movie.id}
-                            title={movie.descripcion ? movie.descripcion.substring(0, 50) : ''}
+                            title={
+                                movie.descripcion
+                                    ? movie.descripcion.length > 50
+                                        ? movie.descripcion.substring(0, 50) + '...'
+                                        : movie.descripcion
+                                    : ''
+                            }
                         />
                     ))
                 }
