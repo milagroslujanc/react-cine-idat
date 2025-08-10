@@ -33,7 +33,11 @@ export function ListMovies() {
                 {movies.length === 0 ?
                     <p>Cargando películas...</p> :
                     movies.data.map(movie => (
-                        <img src={movie.imgUrl} key={movie.id} />
+                        <img
+                            src={movie.imgUrl}
+                            key={movie.id}
+                            title={movie.descripcion ? movie.descripcion.substring(0, 50) : ''}
+                        />
                     ))
                 }
             </div>
