@@ -10,7 +10,7 @@ export function Reservation() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [movies, setMovies] = useState([]);
-  const [timeLeft, setTimeLeft] = useState(60); // 10 minutes in seconds
+  const [timeLeft, setTimeLeft] = useState(60);
   const [showModal, setShowModal] = useState(false);
   const [selectedMovieTitle, setSelectedMovieTitle] = useState("");
 
@@ -265,7 +265,7 @@ export function Reservation() {
                   className="btn btn-primary"
                   onClick={() => {
                     setShowModal(false);
-                    setTimeLeft(600); // Reset timer
+                    setTimeLeft(600); 
                   }}
                 >
                   Reiniciar
