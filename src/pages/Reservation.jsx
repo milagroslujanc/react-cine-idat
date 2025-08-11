@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../styles/Reservation.css";
+import { useNavigate } from "react-router-dom";
 
 export function Reservation() {
   const [selectedTime, setSelectedTime] = useState("");
@@ -9,6 +10,11 @@ export function Reservation() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [movies, setMovies] = useState([]);
+  const [timeLeft, setTimeLeft] = useState(60); // 10 minutes in seconds
+  const [showModal, setShowModal] = useState(false);
+  const [selectedMovieTitle, setSelectedMovieTitle] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -28,6 +34,38 @@ export function Reservation() {
     fetchMovies();
   }, []);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          alert("El tiempo ha terminado.");
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const handleBeforeUnload = (e) => {
+      e.preventDefault();
+      setShowModal(true);
+      return (e.returnValue = "El tiempo está por terminar. ¿Desea continuar?");
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, []);
+
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+  };
+
   const times = ["7:30 pm", "8:00 pm", "8:30 pm", "9:00 pm", "9:30 pm"];
   const seats = [
     ["A1", "A2", "A3", "A4", "A5"],
@@ -44,6 +82,7 @@ export function Reservation() {
     if (selectedMovie) {
       setImgMovie(selectedMovie.imgUrl);
       setDescription(selectedMovie.descripcion);
+      setSelectedMovieTitle(selectedMovie.titulo);
     }
   };
 
@@ -52,18 +91,35 @@ export function Reservation() {
       alert("Por favor, complete todos los campos.");
       return;
     }
-    setSelectedSeat("");
-    setSelectedTime("");
-    setName("");
-    setEmail("");
-    setImgMovie("");
-    setDescription("");
 
-    alert("Reserva realizada con éxito!");
+    // Buscar la película seleccionada por su ID
+    //const  = movie.titleMovie
+
+    
+
+    const reservation = {
+      title: selectedMovieTitle || "No seleccionada",
+      date: new Date().toLocaleDateString(),
+      time: selectedTime,
+      name,
+      email,
+      seat: selectedSeat,
+    };
+
+    navigate("/resumenReserva", { state: { reservation } });
   };
 
   return (
     <div className="container mt-5">
+      {/* Timer */}
+      <div
+        className={`timer-label ${
+          timeLeft <= 30 ? "bg-danger text-white" : "bg-primary text-white"
+        }`}
+      >
+        {formatTime(timeLeft)}
+      </div>
+
       <h2 className="fw-bold text-primary">Película</h2>
       <p className="text-muted">
         {description || "Seleccione una película para ver su descripción."}
@@ -179,6 +235,46 @@ export function Reservation() {
           </div>
         </div>
       </div>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="modal show d-block" tabIndex="-1">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Alerta</h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  onClick={() => setShowModal(false)}
+                ></button>
+              </div>
+              <div className="modal-body">
+                <p>El tiempo está por terminar. ¿Desea continuar?</p>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => setShowModal(false)}
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => {
+                    setShowModal(false);
+                    setTimeLeft(600); // Reset timer
+                  }}
+                >
+                  Reiniciar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
