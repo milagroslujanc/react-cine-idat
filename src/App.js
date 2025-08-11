@@ -4,14 +4,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 // import pages
 import { Home } from "./pages/Home";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Router, Routes, Route } from "react-router-dom";
 import { Header } from "./components/header";
 import { Footer } from "./components/footer";
 import { Reservation } from "./pages/Reservation";
-// import Peliculas from "./pages/Peliculas";
-// import Cines from "./pages/Cines";
-// import Promociones from "./pages/Promociones";
-// import Alimentos from "./pages/Alimentos";
+import { ReservationSummary } from "./pages/ReservationSummary";
 
 function App() {
   return (
@@ -22,10 +19,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/reservas" element={<Reservation />} />
         <Route path="/peliculas" element={<Home />} />
-        {/* <Route path="/peliculas" element={<Peliculas />} />
-        <Route path="/cines" element={<Cines />} />
-        <Route path="/promociones" element={<Promociones />} />
-        <Route path="/alimentos" element={<Alimentos />} /> */}
+        <Route path="/resumenReserva" element={<ReservationSummary />} />
       </Routes>
       <Footer/>
     </BrowserRouter>
