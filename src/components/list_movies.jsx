@@ -6,7 +6,7 @@ export function ListMovies() {
     const [movies, setMovies] = useState([])
     const navigate = useNavigate();
 
-    useEffect(() => {
+    useEffect(() => { 
         const fetchMovies = async () => {
             const api = "https://backend-cine-idat-production.up.railway.app"
             try {
