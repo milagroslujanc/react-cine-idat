@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import "../styles/Reservation.css";
 import { useNavigate } from "react-router-dom";
+import "../styles/Reservation.css";
 
 export function Reservation() {
   const [selectedTime, setSelectedTime] = useState("");
@@ -13,6 +13,7 @@ export function Reservation() {
   const [timeLeft, setTimeLeft] = useState(60);
   const [showModal, setShowModal] = useState(false);
   const [selectedMovieTitle, setSelectedMovieTitle] = useState("");
+  const [emailError, setEmailError] = useState("");
 
   const navigate = useNavigate();
 
@@ -109,6 +110,23 @@ export function Reservation() {
     navigate("/resumenReserva", { state: { reservation } });
   };
 
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };  
+
+  const handleEmailChange = (e) => {
+    const inputEmail = e.target.value;
+    setEmail(inputEmail);
+
+    if (!validateEmail(inputEmail)) {
+      setEmailError("Por favor, ingresa un correo válido.");
+    } else {
+      setEmailError(""); // Clear error if valid
+    }
+  };
+
+
   return (
     <div className="container mt-5">
       {/* Timer */}
@@ -128,7 +146,7 @@ export function Reservation() {
       <div className="row mt-4">
         <div className="col-md-4">
           <img
-            src={imgMovie || "https://via.placeholder.com/150"}
+            src={imgMovie || "https://larazon.pe/wp-content/uploads/2024/04/cine.jpg"}
             alt="Avengers Poster"
             className="img-fluid rounded movie-poster"
           />
@@ -206,8 +224,9 @@ export function Reservation() {
                 className="form-control"
                 placeholder="Correo"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={handleEmailChange}
               />
+              {emailError && <small className="text-danger">{emailError}</small>}
             </div>
 
             <div className="col-md-4">

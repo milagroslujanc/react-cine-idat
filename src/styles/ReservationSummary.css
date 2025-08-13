@@ -1,0 +1,37 @@
+/* Ocultar todo excepto el área imprimible al imprimir */
+@media print {
+    body * {
+      visibility: hidden;
+    }
+  
+    .printable-area, .printable-area * {
+      visibility: visible;
+    }
+  
+    .printable-area {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
+
+  .reservation-summary {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .printable-area {
+    flex: 1;
+  }
+  
+  .qr-code-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
