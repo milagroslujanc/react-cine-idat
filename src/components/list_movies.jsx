@@ -1,17 +1,16 @@
-import { useEffect, useState } from 'react'
-import '../styles/Body.css'
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../styles/Body.css';
 
 export function ListMovies() {
-
-    // consulta a la api de obtener las películas
     const [movies, setMovies] = useState([])
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchMovies = async () => {
             const api = "https://backend-cine-idat-production.up.railway.app"
             try {
                 const response = await fetch(`${api}/cines/cartelera`)
-                console.log(response)
                 if (!response.ok) {
                     throw new Error('Network response was not ok')
                 }
@@ -25,6 +24,11 @@ export function ListMovies() {
         fetchMovies()
     }, [])
 
+    const handleMovieClick = (movie) => {
+        console.log(movie)
+        navigate('/movie-detail', { state: { movie } });
+    };
+
     return (
         <section className="container list-movies" id="peliculas">
             <h2 className='text-color'>Películas</h2>
@@ -33,17 +37,27 @@ export function ListMovies() {
                 {movies.length === 0 ?
                     <p>Cargando películas...</p> :
                     movies.data.map(movie => (
-                        <img
-                            src={movie.imgUrl}
-                            key={movie.id}
-                            title={
-                                movie.descripcion
-                                    ? movie.descripcion.length > 50
-                                        ? movie.descripcion.substring(0, 50) + '...'
-                                        : movie.descripcion
-                                    : ''
-                            }
-                        />
+                        <div className="movie-card" key={movie.id}>
+                            <div className="movie-image-container">
+                                <img
+                                    src={movie.imgUrl}
+                                    alt={movie.descripcion || 'Imagen de la película'}
+                                    title={
+                                        movie.descripcion
+                                            ? movie.descripcion.length > 50
+                                                ? movie.descripcion.substring(0, 50) + '...'
+                                                : movie.descripcion
+                                            : ''
+                                    }
+                                />
+                            </div>
+                            <button
+                                className="movie-button"
+                                onClick={() => handleMovieClick(movie)}
+                            >
+                                Ver más
+                            </button>
+                        </div>
                     ))
                 }
             </div>
