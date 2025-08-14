@@ -1,6 +1,7 @@
 import "../styles/Footer.css";
 import facebook from "./img/facebook.png";
 import instagram from "./img/instagram.png";
+import youtube from "./img/youtube.png";
 
 
 export function Footer() {
@@ -48,7 +49,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/img/youtube.png" alt="YouTube" />
+            <img src={youtube} alt="YouTube" width={40} height={25}  />YouTube
           </a>
         </div>
       </div>
