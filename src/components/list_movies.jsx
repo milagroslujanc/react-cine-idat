@@ -36,35 +36,35 @@ export function ListMovies() {
                     {
                         id: "matrix",
                         titulo: "The Matrix",
-                        imgUrl: "https://es.web.img3.acsta.net/c_310_420/medias/nmedia/18/72/16/76/20065616.jpg",
+                        imgUrl: "https://m.media-amazon.com/images/I/71PfZFFz9yL._AC_SY879_.jpg",
                         descripcion: "Un hacker descubre que el mundo en el que vive es una simulación y se une a una rebelión para liberar a la humanidad.",
                         genero: ["Acción", "Ciencia Ficción", "Thriller"]
                     },
                     {
                         id: "inception",
                         titulo: "Inception",
-                        imgUrl: "https://es.web.img3.acsta.net/c_310_420/medias/nmedia/18/72/41/74/20198901.jpg",
+                        imgUrl: "https://m.media-amazon.com/images/I/71wLrRTsZdL._AC_SY300_SX300_QL70_FMwebp_.jpg",
                         descripcion: "Un ladrón especializado en robar secretos del subconsciente debe realizar la tarea inversa: implantar una idea.",
                         genero: ["Ciencia Ficción", "Acción", "Thriller"]
                     },
                     {
                         id: "interstellar",
                         titulo: "Interstellar",
-                        imgUrl: "https://es.web.img2.acsta.net/c_310_420/pictures/14/10/02/11/07/341344.jpg",
+                        imgUrl: "https://m.media-amazon.com/images/S/pv-target-images/79194981293eabf6620ece96eb5a9c1fffa04d3374ae12986e0748800b37b9cf.jpg",
                         descripcion: "Un grupo de exploradores viaja a través de un agujero de gusano en busca de un nuevo hogar para la humanidad.",
                         genero: ["Ciencia Ficción", "Aventura", "Drama"]
                     },
                     {
                         id: "gladiador",
                         titulo: "Gladiador",
-                        imgUrl: "https://es.web.img3.acsta.net/c_310_420/medias/nmedia/18/70/92/02/20149073.jpg",
+                        imgUrl: "https://m.media-amazon.com/images/I/61MSIFHAxML._UF894,1000_QL80_.jpg",
                         descripcion: "Un general romano traicionado se convierte en gladiador para vengar la muerte de su familia.",
                         genero: ["Acción", "Drama", "Histórica"]
                     },
                     {
                         id: "shrek",
                         titulo: "Shrek",
-                        imgUrl: "https://es.web.img3.acsta.net/c_310_420/pictures/14/03/06/10/13/369709.jpg",
+                        imgUrl: "https://m.media-amazon.com/images/S/pv-target-images/030f9ae65cadc9afc0e3c51ed35d2ddeb814f213d7a87fc5aa4445738ebb32b9.jpg",
                         descripcion: "Un ogro gruñón se embarca en una misión para rescatar a una princesa y termina descubriendo el amor.",
                         genero: ["Animación", "Comedia", "Fantasía"]
                     }                    
