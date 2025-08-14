@@ -1,4 +1,7 @@
 import "../styles/Footer.css";
+import facebook from "./img/facebook.png";
+import instagram from "./img/instagram.png";
+
 
 export function Footer() {
   return (
@@ -31,14 +34,14 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/img/facebook.png" alt="Facebook" />
+            <img src={facebook} alt="Facebook" width={50} height={50} />Facebook
           </a>
           <a
             href="https://www.instagram.com/idatperu/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="/img/instagram.png" alt="Instagram" />
+            <img src={instagram} alt="Instagram" width={40} height={40}  />Instagram
           </a>
           <a
             href="https://www.youtube.com/@idatperu"
