@@ -22,7 +22,7 @@ export function ListMovies() {
                     {
                         id: "el-senor-de-los-anillos",
                         titulo: "El Señor de los Anillos: La Comunidad del Anillo",
-                        imgUrl: "https://es.web.img2.acsta.net/c_310_420/medias/nmedia/18/89/67/45/20061512.jpg",
+                        imgUrl: "https://m.media-amazon.com/images/I/81IJ4Jdn1RL._UF1000,1000_QL80_.jpg",
                         descripcion: "Un hobbit llamado Frodo emprende un peligroso viaje para destruir el Anillo Único y salvar la Tierra Media del malvado Sauron.",
                         genero: ["Aventura", "Fantasía", "Épico"]
                     },
